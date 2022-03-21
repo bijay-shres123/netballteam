@@ -1,4 +1,4 @@
-class Court extends React.Component {
+/* class Court extends React.Component {
 
 	render () {
 		return (
@@ -31,6 +31,15 @@ class ListOfCourts extends React.Component {
 		</Wrapper>
 	  )
 	}
-}
+} 
 
-export default ListOfCourts
+export default ListOfCourts  */ 
+
+const Courts = () => {
+    return (<>
+      <h1>Courts</h1>
+      <p>This is a Forum page.</p>
+      </>);
+  };
+  
+  export default Courts;

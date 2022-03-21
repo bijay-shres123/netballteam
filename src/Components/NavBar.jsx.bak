@@ -20,10 +20,11 @@ export default function NavBar() {
             <NavDropdown title="Forum" id="collasible-nav-dropdown">
 			  <NavDropdown.Item href="#action/3.1">Homepage</NavDropdown.Item>
 			  <NavDropdown.Item href="#action/3.1">Notifications</NavDropdown.Item>
+			  <NavDropdown.Item href="#action/3.1">Private Messages</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Saved Threads</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Team Subforums</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Private Messages</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown> 
           </Nav>
           <Nav className='navbar-nav ml-auto'>
