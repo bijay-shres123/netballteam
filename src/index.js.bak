@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Forum from "./pages/Forum";
 import Contact from "./pages/Contact";
+import Courts from "./pages/Courts";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="forum" element={<Forum />}/>
+		  <Route path="courts" element={<Courts />}/>
           <Route path="contact" element={<Contact />} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>

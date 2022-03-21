@@ -1,4 +1,5 @@
-class Court extends React.Component {
+const Court = () =>  {
+	
 
 	render () {
 		return (
@@ -11,7 +12,7 @@ class Court extends React.Component {
 	}
 }
 
-class ListOfCourts extends React.Component {
+const ListOfCourts = () =>  {
 
 	renderCourt(){
 		return <Court value={i} />;
