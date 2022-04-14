@@ -1,60 +1,84 @@
 import React, { useState } from "react"
 import styled from 'styled-components'
 import { Button, Form, Alert } from "react-bootstrap"
+import axios from 'axios';
+import {PostData} from '../services/PostData'
+import { useFormik } from 'formik';
+import { Link, Navigate } from 'react-router-dom';
+const LoginForm = ({ authenticate, resetPassword, onSuccess }) => 
+  {
+  const [ErrorLogin, setErrorLogin] = useState('');
+  const [SuccessLogin, setSuccessLogin] = useState('');
+  const formik = useFormik({
+     initialValues: {
+       username: '',
+       password:'',
 
-const LoginForm = ({ authenticate, resetPassword, onSuccess }) => {
-  const [status, setStatus] = useState("idle")
-  const [error, setError] = useState(null)
+     },
+     onSubmit: (values) => {
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+      if (values.username && values.password) {
+        PostData(values).then((result) => {
+          let responseJSON:any= result;
+          console.log(responseJSON);
 
-  const submit = async () => {
-    setError(null)
-    setStatus("loading")
-    try {
-      const result = await authenticate({ email, password })
-      if (result.success) {
-        onSuccess(result)
-        return
+          if (responseJSON.status===200) {
+            localStorage.setItem('token', responseJSON.data.token);
+            setSuccessLogin('True');
+          } else if(responseJSON.status===400) {
+            console.log(PostData.Data)
+            setErrorLogin(responseJSON.data.non_field_errors[0]);
+
+            setTimeout(() => {
+              setErrorLogin("")
+            }, 10000); 
+          }
+        });
       }
-      throw new Error()
-    } catch (err) {
-      console.log("err", err)
-      setError("Not Verified")
-      setStatus("error")
-    }
-  }
+    },
+   });
 
-  const isValidEmail = email && email.indexOf("@") > -1
-  const isValid = status !== "loading" && isValidEmail && !!password
-
+  //  if (localStorage.getItem('token')) {
+  //   return <Navigate to={'/'} />;
+  // }
+  if (SuccessLogin === 'True') {
+     alert('Logged IN')
+    
+     return < Navigate to={'/'} />
+    
+     
+  } 
+  
   return (
       <Wrapper>
-    <Form onSubmit={(e) => e.preventDefault()} className="card-body cardbody-color " style={{boxShadow:' -1px 1px 6px 10px #c8d3d7'}}>
+    <Form  onSubmit={formik.handleSubmit} className="card-body cardbody-color " style={{boxShadow:' -1px 1px 6px 10px #c8d3d7'}}>
     <div className="text-center">
-              <img src="assets/images/user.jpeg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+              <img src="assets/images/" className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                 width="160px" alt="profile"/>
             </div>
       <Form.Group>
         <Form.Label>Email Address</Form.Label>
         <Form.Control
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          placeholder="email"
+        id="username"
+         name="username"
+          type="username"
+          onChange={formik.handleChange}
+         value={formik.values.username}
+          placeholder="username"
         />
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
+        id="password"
+         name="password"
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
+          onChange={formik.handleChange}
+         value={formik.values.password}
           placeholder="password"
         />
       </Form.Group>
-      {error && <Alert variant="danger">{error}</Alert>}
+      
       <Button 
       className="btn btn-color px-5 mb-5 w-100"
         style={{ marginTop: 30,BackgroundColor:'#0e1c36',
@@ -62,7 +86,7 @@ const LoginForm = ({ authenticate, resetPassword, onSuccess }) => {
         variant="primary"
         size="sm"
         block
-        onClick={submit}
+       
         type="submit"
         
       >

@@ -2,38 +2,95 @@ import React, { useState } from "react"
 import styled from 'styled-components'
 import { Button, Form, Alert } from "react-bootstrap"
 import Link from 'react-dom'
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { PostData2 } from '../services/PostData2';
 
-const SignUpForm = ({ authenticate, resetPassword, onSuccess }) => {
-  const [status, setStatus] = useState("idle")
-  const [error, setError] = useState(null)
-
-  const[username,setUsername]= useState("")
-  const [email, setEmail] = useState("")
-  const [password1, setPassword1] = useState("")
-  const [password2, setPassword2] = useState("")
-  
-
-  const submit = async () => {
-    setError(null)
-    setStatus("loading")
-    try {
-      const result = await authenticate({ email, password1 })
-      if (result.success) {
-        onSuccess(result)
-        return
+export default function SignUpForm() {
+  const [SuccessLogin, setSuccessLogin] = useState('');
+  const [ErrorMessage, setErrorMessage] = useState('');
+ 
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      
+      email: '',
+      password: '',
+      is_player:'False',
+      is_coach:'False',
+    },
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .required('Please provide a user name!')
+        .min(2, 'Seems a bit short...')
+        .max(
+          23,
+          'A username is your identity.Keep it short .Less than 10 letters'
+        ),
+      
+      email: Yup.string().label('Email').email().required(),
+      password: Yup.string()
+        .label('Password')
+        .required('Required!')
+        .min(7, 'Seems a bit short...'),
+ 
+      // password2: Yup.string()
+      //   .required('Required!')
+      //   .test('passwords-match', 'Passwords must match !', function (value) {
+      //     return this.parent.password === value;
+      //   }),
+    }),
+    onSubmit: (values) => {
+      if (
+        values.name &&
+        values.email &&
+        values.password
+      ) {
+        PostData2(values).then((result) => {
+          let responseJSON:any = result;
+          console.log(responseJSON);
+          if (responseJSON.status===200|| responseJSON.status===201) {
+            console.log('User Created');
+ 
+            //LOGGING THE USER AFTER ACCOUNT CREATION
+            let values2 = {
+              username: responseJSON.data.email,
+              password: responseJSON.data.password,
+            };
+            PostData2('login', values2).then((result) => {
+              let responseJSON:any = result;
+              console.log(responseJSON);
+    
+              if (responseJSON.status===200||responseJSON.status===201) {
+                localStorage.setItem('token', responseJSON.data.token);
+                setSuccessLogin('True');
+              } else if(responseJSON.status===400) {
+                
+    
+                setTimeout(() => {
+                  
+                }, 10000); 
+              }
+            });
+          } else if(responseJSON.status===400) {
+            if(responseJSON.data.email){
+                setErrorMessage(responseJSON.data.email);
+            }else if(responseJSON.data.password){
+                console.log(responseJSON.data.password)
+                setErrorMessage(responseJSON.data.password[0]);
+            }
+            
+            setTimeout(() => {
+              setErrorMessage("")
+            }, 10000);    
+             }
+        });
       }
-      throw new Error()
-    } catch (err) {
-      console.log("err", err)
-      setError("Not Verified")
-      setStatus("error")
-    }
-  }
-
-  const isValidEmail = email && email.indexOf("@") > -1
-  const isValid = status !== "loading" && isValidEmail && !!password1
-
-  return (
+    },
+  });
+  
+ return (
+      <>
       <Wrapper>
           <div className="row" style={{boxShadow:' -1px 1px 6px 10px #c8d3d7', }}>
             <div className="col-sm" style={{backgroundImage: 'url(/assets/images/signup.jpeg)', backgroundSize:'cover',textAlign:'center',boxShadow:'inset 0 0 0 2000px rgb(0 0 0 / 50%)'}}> 
@@ -41,60 +98,69 @@ const SignUpForm = ({ authenticate, resetPassword, onSuccess }) => {
             </div>
     
     <div className="col-sm">
-    <Form onSubmit={(e) => e.preventDefault()} className="card-body cardbody-color ">
+    <Form  onSubmit={formik.handleSubmit} className="card-body cardbody-color ">
     <div className="text-center" >
               
             </div>
             <Form.Group>
         <Form.Label>Name</Form.Label>
         <Form.Control
-          type="name"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
+          id="name"
+         name="name"
+          onChange={formik.handleChange}
+         value={formik.values.name}
           placeholder="name"
         />
       </Form.Group>
       <Form.Group>
         <Form.Label>Email Address</Form.Label>
         <Form.Control
+        id="email"
+         name="email"
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          onChange={formik.handleChange}
+         value={formik.values.email}
           placeholder="email"
         />
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
+        id="password"
+         name="password"
           type="password"
-          onChange={(e) => setPassword1(e.target.value)}
-          value={password1}
+          onChange={formik.handleChange}
+         value={formik.values.password}
           placeholder="password"
         />
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
         <Form.Label>Confirm Password</Form.Label>
         <Form.Control
+        id="password2"
+         name="password2"
           type="conf_password"
-          onChange={(e) => setPassword2(e.target.value)}
-          value={password2}
+          onChange={formik.handleChange}
+         value={formik.values.password2}
           placeholder="confirm password"
         />
       </Form.Group>
       <Form.Group>
       <Form.Label>Select User Type :</Form.Label><br></br>
       <div className="form-check form-check-inline">
-        <input className="form-check-input" type="radio" name="user_type" id="inlineRadio1" value="coach"/>
+        <input className="form-check-input" type="radio" value="coach" id="is_coach"
+         name="is_coach" onChange={formik.handleChange}
+         value={formik.values.is_coach}/>
         <label className="form-check-label" for="inlineRadio1">Coach</label>
       </div>
       <div className="form-check form-check-inline">
-        <input className="form-check-input" type="radio" name="user_type" id="inlineRadio2" value="player"/>
+        <input className="form-check-input" type="radio" name="is_player" id="is_player" value="player" onChange={formik.handleChange}
+         value={formik.values.is_player}/>
         <label className="form-check-label" for="inlineRadio2">Player</label>
       </div>
       
       </Form.Group>
  
-      {error && <Alert variant="danger">{error}</Alert>}
       <br></br>
       <div className="form-check d-flex justify-content-center mb-5">
                     
@@ -109,7 +175,7 @@ const SignUpForm = ({ authenticate, resetPassword, onSuccess }) => {
         variant="primary"
         size="sm"
         block
-        onClick={submit}
+       
         type="submit"
         
       >
@@ -121,10 +187,11 @@ const SignUpForm = ({ authenticate, resetPassword, onSuccess }) => {
     </div>
    </div>
     </Wrapper>
+    </>
   )
 }
 
-export default SignUpForm
+
 
 const Wrapper = styled.section`
 background-color: #ebf2fa;
