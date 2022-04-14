@@ -2,7 +2,6 @@ import {Nav,} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
 const TrainingSession = () => {
     return (<>
-
       <h1 style={{textAlign:'center', margin:"25px 0"}}>Training Session</h1>
       <div className="container">
   <div className="row">
@@ -124,7 +123,7 @@ const TrainingSession = () => {
       <Card style={{ width: '18rem' ,color:"#000" }}>
         <Card.Img variant="top" src="assets/images/sp.png" />
         <Card.Body>
-            <Card.Title>Hitting circle edge - Attack </Card.Title>
+            <Card.Title>Hitting circle edge </Card.Title>
             <Card.Text>
 				<p>
 					 It is important that your attacking players can hit circle edge to receive the ball. 
