@@ -1,3 +1,4 @@
+import {Nav,} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
 const TrainingSession = () => {
     return (<>
@@ -9,7 +10,7 @@ const TrainingSession = () => {
       <Card style={{ width: '18rem' ,color:"#000" }}>
         <Card.Img variant="top" src="assets/images/sp.png" />
         <Card.Body>
-            <Card.Title>The Grip</Card.Title>
+            <Card.Title><Nav.Link href="/session1">Strength and Conditioning</Nav.Link></Card.Title>
             <Card.Text>
             Some quick example text to build on the card title and make up the bulk of
             the card's content.
@@ -22,7 +23,7 @@ const TrainingSession = () => {
       <Card style={{ width: '18rem' ,color:"#000" }}>
         <Card.Img variant="top" src="assets/images/sp.png" />
         <Card.Body>
-            <Card.Title>The Grip</Card.Title>
+            <Card.Title>Strength and Conditioning</Card.Title>
             <Card.Text>
             Some quick example text to build on the card title and make up the bulk of
             the card's content.
