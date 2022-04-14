@@ -1,5 +1,6 @@
 import {Nav,} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
+import ShowMore from 'react-show-more-button';
 const TrainingSession = () => {
     return (<>
       <h1 style={{textAlign:'center', margin:"25px 0"}}>Training Session</h1>
@@ -16,13 +17,16 @@ const TrainingSession = () => {
 				<p>
 					One player starts with the ball and drops, places or throws the ball in random places around a semi circular area.
 				</p>
+				<ShowMore maxHeight={100}>
 				<p>
+				
 					The other player in the pair stands around a metre opposite keeping a close eye on the ball. 
 					They need to react as quickly as possible to gather the ball either before it bounces or after only 1 bounce.
 				</p>
 				<p>
 					After 10, have the players swap over so that the passer is now reacting to the ball.
 				</p>
+				</ShowMore>
             </Card.Text>
             
         </Card.Body>
@@ -42,6 +46,7 @@ const TrainingSession = () => {
 				<p>
 					Attacker starts on the top of the triangle and the other starts on one of the bottom corners.
 				</p>
+				<ShowMore maxHeight={100}>
 				<p>
 					They are defended by 2 defenders the whole time.
 				</p>
@@ -55,6 +60,7 @@ const TrainingSession = () => {
 					The attacker behind the line passes the ball to the new top attacker, takes one of the bottom corner spaces 
 					and the drill repeats.
 				</p>
+			 	</ShowMore>
             </Card.Text>
             
         </Card.Body>
@@ -75,6 +81,7 @@ const TrainingSession = () => {
 				<p>
 					Have two balls start on opposite sides of the cross (white 1 and 3)
 				</p>
+				<ShowMore maxHeight={100}>
 				<p>
 					Blue 1 and 3 run straight across and receive a pass from the left. 
 					They then pass on straight and join the end of the opposite line.
@@ -83,6 +90,7 @@ const TrainingSession = () => {
 					White 1 and 3 then do the same, run straight and receive the ball from the left, 
 					pass on straight and join the end of the opposite line. Repeat
 				</p>
+				</ShowMore>
             </Card.Text>
             
         </Card.Body>
@@ -101,6 +109,7 @@ const TrainingSession = () => {
 					 Every player should be able to successfully demonstrate a 1st and 2nd stage 
 					 defence to apply pressure to the ball carrier and force an error or turnover.
 				</p>
+				<ShowMore maxHeight={100}>
 				<p>
 					 The session begins with a fun warm-up where plays need to be quick to react 
 					 for both attack and defence. The session looks particularly at stage 1 and 2 
@@ -114,6 +123,7 @@ const TrainingSession = () => {
 				<p>
 					 Players should begin working as a unit and in partnerships to be more successful in defence.
 				</p>
+				</ShowMore>
             </Card.Text>
             
         </Card.Body>
@@ -130,6 +140,7 @@ const TrainingSession = () => {
 					 This helps reduce the pressure on the ball carrier, as a defender cannot 3ft 
 					 mark and therefore increases the success of feeding the shooters. 
 				</p>
+				<ShowMore maxHeight={100}>
 				<p>
 					  The session begins with a fun warm-up focused on getting your players working to get the ball 
 					  to a certain area. This will help your players think of different ways to get free and work 
@@ -143,6 +154,7 @@ const TrainingSession = () => {
 					  Players should not simply stand on the circle edge, instead use their skills to move on and off, 
 					  repositioning around the circle. 
 				</p>
+				</ShowMore>
             </Card.Text>
             
         </Card.Body>
