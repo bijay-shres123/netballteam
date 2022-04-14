@@ -1,5 +1,6 @@
 import {Nav,} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
+import styled from 'styled-components'
 const TrainingSession = () => {
     return (<>
 
@@ -89,8 +90,25 @@ const TrainingSession = () => {
         </div>
         
     </div>
+   
     </div>
+    <Wrapper>
+    <div className='container'><span style={{fontSize:'22px'}}>Do you want to request for more training sessions?</span><br/>
+    <button type="button" class="btn btn-success">Request Here!</button>
+    </div>
+    </Wrapper>
       </>);
   };
   
   export default TrainingSession;
+
+  const Wrapper = styled.section`
+  padding: 4em;
+  min-height:200px;
+  background-image: url(/assets/images/back1.jpeg);
+
+  background-blend-mode: multiply;
+  </Wrapper>
+  box-shadow: inset 0 0 0 2000px rgb(0 0 0 / 50%);
+  color:#fff;
+`;
