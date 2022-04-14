@@ -9,6 +9,8 @@ import Signup from "./pages/Signup";
 import TrainingSession from "./pages/TrainingSession";
 import Session1 from "./pages/Session1";
 import MyProfile from "./pages/MyProfile";
+import TrainingRequest from "./pages/TrainingRequest";
+import ForgotPassword from "./pages/ForgotPassword";
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
           <Route path="/trainingsession" element={<TrainingSession/>}/>
           <Route path="/session1" element={<Session1/>}/>
           <Route path="/myprofile" element={<MyProfile/>}/>
+          <Route path= '/trainingrequest' element={<TrainingRequest/>}/>
+          <Route path='/forgot-password' element={<ForgotPassword/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

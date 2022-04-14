@@ -16,8 +16,8 @@ export default function SignUpForm() {
       
       email: '',
       password: '',
-      is_player:'False',
-      is_coach:'False',
+      is_player:'',
+      is_coach:'',
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -139,7 +139,7 @@ export default function SignUpForm() {
         <Form.Control
         id="password2"
          name="password2"
-          type="conf_password"
+          type="password"
           onChange={formik.handleChange}
          value={formik.values.password2}
           placeholder="confirm password"
@@ -148,16 +148,14 @@ export default function SignUpForm() {
       <Form.Group>
       <Form.Label>Select User Type :</Form.Label><br></br>
       <div className="form-check form-check-inline">
-        <input className="form-check-input" type="radio" value="coach" id="is_coach"
-         name="is_coach" onChange={formik.handleChange}
-         value={formik.values.is_coach}/>
-        <label className="form-check-label" for="inlineRadio1">Coach</label>
+        <input className="form-check-input" type="radio" id ="is_player" name="user_type"  value={formik.values.is_coach} onChange={formik.handleChange}/>
+        <label className="form-check-label" for="is_coach">Coach</label>
       </div>
       <div className="form-check form-check-inline">
-        <input className="form-check-input" type="radio" name="is_player" id="is_player" value="player" onChange={formik.handleChange}
-         value={formik.values.is_player}/>
-        <label className="form-check-label" for="inlineRadio2">Player</label>
+        <input className="form-check-input" type="radio" id ="is_player" name="user_type" value={formik.values.is_player} onChange={formik.handleChange}/>
+        <label className="form-check-label" for="is_player">Player</label>
       </div>
+     
       
       </Form.Group>
  

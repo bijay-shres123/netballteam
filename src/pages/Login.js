@@ -92,6 +92,16 @@ const LoginForm = ({ authenticate, resetPassword, onSuccess }) =>
       >
         Login
       </Button>
+      <div
+          id="forgotPassword"
+          className="form-text text-center mb-5 text-dark"
+        >
+          Forgot Password?
+          <a href="/forgot-password" class="text-dark fw-bold">
+            {" "}
+            Reset Password
+          </a>
+        </div>
       <div id="emailHelp" className="form-text text-center mb-5 text-dark">Not
               Registered? <a href="#" class="text-dark fw-bold"> Create an
                 Account</a>
