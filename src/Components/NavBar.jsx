@@ -5,6 +5,12 @@ import styled from "styled-components";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function NavBar() {
+  const [userLoginInfo, setuserLoginInfo] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setuserLoginInfo(true);
+    }
+  }, []);
     return(
     
         <Navbar collapseOnSelect expand="lg" style={{background:"#09425A"}} variant="dark">
@@ -17,24 +23,39 @@ export default function NavBar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/forum">Forum</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
-            <NavDropdown title="Training Session" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/trainingsession">Training Session</Nav.Link>
           </Nav>
-          <Nav className='navbar-nav ml-auto'>
           
+          {userLoginInfo === false ? (
+            <Nav className='navbar-nav ml-auto'>
             <Nav.Link href="/login" style={{color:'#fff'}}>
+
             <FontAwesomeIcon icon={faUser} style={{padding: '0px 2px'}} />
              Login
             </Nav.Link> 
             <Nav.Link href="/signup" style={{color:'#fff'}}>
               Sign Up
             </Nav.Link>
-          </Nav>
+            </Nav>
+          ): (
+            <Nav className='navbar-nav ml-auto'>
+              <Nav.Link to="/my-profile" className="sign-in">
+                My Profile
+              </Nav.Link>
+              <Nav.Link
+                to="/"
+                className="sign-in"
+                onClick={() => {
+                  setuserLoginInfo(false);
+                  console.log('clicked');
+                  localStorage.clear();
+                }}
+              >
+                LOGOUT
+              </Nav.Link>
+            </Nav>
+          )}
+          
         </Navbar.Collapse>
         </Container>
       </Navbar>
