@@ -1,3 +1,4 @@
+import {Nav,} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
 const TrainingSession = () => {
     return (<>
@@ -10,6 +11,7 @@ const TrainingSession = () => {
         <Card.Img variant="top" src="assets/images/sp.png" />
         <Card.Body>
             <Card.Title>10 BALLS ANYWHERE</Card.Title>
+            <Card.Title><Nav.Link href="/session1">Strength and Conditioning</Nav.Link></Card.Title>
             <Card.Text>
 				Have the players get into pairs.
 				<p>
@@ -32,6 +34,7 @@ const TrainingSession = () => {
         <Card.Img variant="top" src="assets/images/sp.png" />
         <Card.Body>
             <Card.Title>TRIANGLE 2 VS 2</Card.Title>
+            <Card.Title>Strength and Conditioning</Card.Title>
             <Card.Text>
             Have the players get into pairs.
 				<p>
