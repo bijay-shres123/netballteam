@@ -6,11 +6,13 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function NavBar() {
   const [userLoginInfo, setuserLoginInfo] = useState(false);
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
+  useEffect(() =>
+    setInterval(() => {
+      if (localStorage.getItem('token')) {
       setuserLoginInfo(true);
-    }
-  }, []);
+      }
+    },setuserLoginInfo), 
+    []);
     return(
     
         <Navbar collapseOnSelect expand="lg" style={{background:"#09425A"}} variant="dark">
