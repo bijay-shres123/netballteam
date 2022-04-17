@@ -1,10 +1,10 @@
 import {Nav,} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
-<<<<<<< HEAD
+
 import styled from 'styled-components'
-=======
+
 import ShowMore from 'react-show-more-button';
->>>>>>> ad44353d593707e7220593502c76fd9e88cd210b
+
 const TrainingSession = () => {
     return (<>
       <h1 style={{textAlign:'center', margin:"25px 0"}}>Training Session</h1>

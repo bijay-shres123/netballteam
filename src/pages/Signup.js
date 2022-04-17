@@ -4,10 +4,11 @@ import { Button, Form, Alert } from "react-bootstrap"
 import Link from 'react-dom'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Navigate } from 'react-router-dom';
 import { PostData2 } from '../services/PostData2';
 
 export default function SignUpForm() {
-  const [SuccessLogin, setSuccessLogin] = useState('');
+  const [Success, setSuccess] = useState(false);
   const [ErrorMessage, setErrorMessage] = useState('');
  
   const formik = useFormik({
@@ -16,8 +17,8 @@ export default function SignUpForm() {
       
       email: '',
       password: '',
-      is_player:'',
-      is_coach:'',
+      is_player:'False',
+      is_coach:'False',
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -46,49 +47,64 @@ export default function SignUpForm() {
         values.email &&
         values.password
       ) {
+        if(values.picked=="coach"){
+          values.is_coach = 'True'
+          values.is_player = 'False'
+          // values.remove('picked')
+        }else{
+          values.is_player = 'True'
+          values.is_coach = 'False'
+          // values.remove('picked')
+        }
+        // console.log(typeof(values))
+        // console.log(values)
         PostData2(values).then((result) => {
           let responseJSON:any = result;
           console.log(responseJSON);
           if (responseJSON.status===200|| responseJSON.status===201) {
             console.log('User Created');
- 
+            setSuccess(true)
             //LOGGING THE USER AFTER ACCOUNT CREATION
-            let values2 = {
-              username: responseJSON.data.email,
-              password: responseJSON.data.password,
-            };
-            PostData2('login', values2).then((result) => {
-              let responseJSON:any = result;
-              console.log(responseJSON);
+        //     let values2 = {
+        //       username: responseJSON.data.email,
+        //       password: responseJSON.data.password,
+        //     };
+        //     PostData2('login', values2).then((result) => {
+        //       let responseJSON:any = result;
+        //       console.log(responseJSON);
     
-              if (responseJSON.status===200||responseJSON.status===201) {
-                localStorage.setItem('token', responseJSON.data.token);
-                setSuccessLogin('True');
-              } else if(responseJSON.status===400) {
+        //       if (responseJSON.status===200||responseJSON.status===201) {
+        //         localStorage.setItem('token', responseJSON.data.token);
+        //         setSuccessLogin('True');
+        //       } else if(responseJSON.status===400) {
                 
     
-                setTimeout(() => {
+        //         setTimeout(() => {
                   
-                }, 10000); 
-              }
-            });
-          } else if(responseJSON.status===400) {
-            if(responseJSON.data.email){
-                setErrorMessage(responseJSON.data.email);
-            }else if(responseJSON.data.password){
-                console.log(responseJSON.data.password)
-                setErrorMessage(responseJSON.data.password[0]);
-            }
+        //         }, 10000); 
+        //       }
+        //     });
+        //   } else if(responseJSON.status===400) {
+        //     if(responseJSON.data.email){
+        //         setErrorMessage(responseJSON.data.email);
+        //     }else if(responseJSON.data.password){
+        //         console.log(responseJSON.data.password)
+        //         setErrorMessage(responseJSON.data.password[0]);
+        //     }
             
-            setTimeout(() => {
-              setErrorMessage("")
-            }, 10000);    
-             }
-        });
+        //     setTimeout(() => {
+        //       setErrorMessage("")
+        //     }, 10000);    
+              }
+        }
+        );
       }
     },
   });
-  
+  if (Success == true){
+    alert('User Created. Now you can sign in')
+    return < Navigate to={'/login'} />
+  }else{
  return (
       <>
       <Wrapper>
@@ -147,14 +163,26 @@ export default function SignUpForm() {
       </Form.Group>
       <Form.Group>
       <Form.Label>Select User Type :</Form.Label><br></br>
-      <div className="form-check form-check-inline">
-        <input className="form-check-input" type="radio" id ="is_player" name="user_type"  value={formik.values.is_coach} onChange={formik.handleChange}/>
+      <div id="my-radio-group">User Type:</div>
+          <div role="group" aria-labelledby="my-radio-group">
+            <label style={{marginRight:'20px'}}>
+              <input type="radio" id="coach" name="picked"  onChange={formik.handleChange} value="coach"/>
+              Coach  
+            </label>
+            <label>
+              <input type="radio" id="player" name="picked" onChange={formik.handleChange} value="player" />
+              Player
+            </label>
+           
+          </div>
+      {/* <div className="form-check form-check-inline">
+        <input className="form-check-input" type="radio"  name="is_coach"  value='true' onChange={formik.handleChange}/>
         <label className="form-check-label" for="is_coach">Coach</label>
       </div>
       <div className="form-check form-check-inline">
-        <input className="form-check-input" type="radio" id ="is_player" name="user_type" value={formik.values.is_player} onChange={formik.handleChange}/>
+        <input className="form-check-input" type="radio"  name="is_player" value='true' onChange={formik.handleChange}/>
         <label className="form-check-label" for="is_player">Player</label>
-      </div>
+      </div> */}
      
       
       </Form.Group>
@@ -188,7 +216,7 @@ export default function SignUpForm() {
     </>
   )
 }
-
+}
 
 
 const Wrapper = styled.section`
