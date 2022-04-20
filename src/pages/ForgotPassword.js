@@ -1,3 +1,12 @@
+/**
+******************************************************************************************
+* The following code represents page and service "Forgot Password". 
+* Here user can reset his passord using email  
+* information to contact the agency. The mobilce phone, address and other sufficient 
+* information is provided. -- Not done yet
+******************************************************************************************
+*/
+
 import React, { useState } from "react"
 import styled from 'styled-components'
 import { Button, Form, Alert } from "react-bootstrap"
@@ -33,7 +42,7 @@ const ForgotPassword = ({ authenticate, resetPassword, onSuccess }) => {
       <Wrapper>
     <Form onSubmit={(e) => e.preventDefault()} className="card-body cardbody-color " style={{boxShadow:' -1px 1px 6px 10px #c8d3d7'}}>
     <div className="text-center">
-              <img src="assets/images/user.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+              <img src="assets/images/user.jpeg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                 width="160px" alt="profile"/>
             </div>
       <Form.Group>

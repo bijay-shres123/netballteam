@@ -18,15 +18,15 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="forum" element={<Forum />}/>
-          <Route path="contact" element={<Contact />} />
+          <Route path="/forum" element={<Forum />}/>
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/trainingsession" element={<TrainingSession/>}/>
           <Route path="/session1" element={<Session1/>}/>
           <Route path="/myprofile" element={<MyProfile/>}/>
-          <Route path= '/trainingrequest' element={<TrainingRequest/>}/>
-          <Route path='/forgot-password' element={<ForgotPassword/>}/>
+          <Route path="/trainingrequest" element={<TrainingRequest/>}/>
+          <Route path="/forgot-password" element={<ForgotPassword/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

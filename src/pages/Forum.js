@@ -1,3 +1,11 @@
+/**
+******************************************************************************************
+* The following code represents page "Forum". It has a list of questions or 
+* discussion topics formed into a table. Also the page provides information about online users
+*
+******************************************************************************************
+*/
+
 const Forum = () => {
     return (
 
@@ -149,17 +157,9 @@ const Forum = () => {
                 <div> by <a href="#">Author Name</a></div>
                 <div> 28 March, 15:00</div>
               </td>
-
-
-
-
-              
             </tr>
           </tbody>
         </table>
-        
-         
-        
       </div>
       
       <div class="col-12  col-xl-3">
@@ -176,7 +176,6 @@ const Forum = () => {
                     <li><a href="#">Nikita K</a></li>
                     <li><a href="#">Aby</a></li>
                     <li><a href="#">Bijay</a></li>
-
                   </ul>
                 </div>
                 <div class="card-footer">
@@ -217,9 +216,9 @@ const Forum = () => {
           </div>
         </aside>
       </div>
-</div>
-</div>
-    )
-  };
+    </div>
+  </div>
+  )
+};
   
   export default Forum;

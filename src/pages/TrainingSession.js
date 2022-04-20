@@ -187,11 +187,11 @@ const TrainingSession = () => {
     </div>
     </Wrapper>
       </>);
-  };
+};
   
-  export default TrainingSession;
+export default TrainingSession;
 
-  const Wrapper = styled.section`
+const Wrapper = styled.section`
   padding: 4em;
   min-height:200px;
   background-image: url(/assets/images/back1.jpeg);

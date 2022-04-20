@@ -1,11 +1,19 @@
+/**
+******************************************************************************************
+* The following function creates a footer used in every page. It has list of helpful
+* links, which includes all pages of the website. Also, it has brief contact information.
+* Designed to be used in each page at the bottom.
+******************************************************************************************
+*/
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+
 const Footer = () => {
   return (
     <Wrapper>
-      {/* <!-- Footer
-    ================================================== --> */}
+      {/* <!-- Footer --> */}
       <div className="margin-top-0"></div>
 
       <div id="footer">
@@ -13,12 +21,12 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-5 col-sm-6">
-              <img className="footer-logo" src="images/logo.png" alt="" />
+              <img className="footer-logo" src="/assets/images/PlaNetBall logo.png" alt="Logo of the site" />
               <br />
               <br />
               <p>
-              Admodum deserunt intellegam in duo, novum nonumy populo est at, qui an reque ignota constituto.
-         Utinam aperiri equidem te vis. Cu ius velit populo impetus.  
+                Admodum deserunt intellegam in duo, novum nonumy populo est at, qui an reque ignota constituto.
+                Utinam aperiri equidem te vis. Cu ius velit populo impetus.  
               </p>
             </div>
 
@@ -26,19 +34,19 @@ const Footer = () => {
               <h4>Helpful Links</h4>
               <ul className="footer-links">
                 <li>
-                  <Link to="/">Login</Link>
+                  <Link to="/login">Login</Link>
                 </li>
                 <li>
-                  <Link to="/">Sign Up</Link>
+                  <Link to="/signup">Sign Up</Link>
                 </li>
                 <li>
-                  <Link to="/">My Account</Link>
+                  <Link to="/myprofile">My Account</Link>
                 </li>
                 <li>
-                  <Link to="/">Forum</Link>
+                  <Link to="/forum">Forum</Link>
                 </li>
                 <li>
-                  <Link to="/">Pricing</Link>
+                  <Link to="/trainingsession">Trainin Session</Link>
                 </li>
                 <li>
                   <Link to="/">Privacy Policy</Link>
@@ -59,7 +67,7 @@ const Footer = () => {
                   <Link to="/">How It Works</Link>
                 </li>
                 <li>
-                  <Link to="/">Contact</Link>
+                  <Link to="/contact">Contact</Link>
                 </li>
               </ul>
               <div className="clearfix"></div>
@@ -68,7 +76,8 @@ const Footer = () => {
             <div className="col-md-3  col-sm-12">
               <h4>Contact Us</h4>
               <div className="text-widget">
-                <span>Oxford, United Kingdom</span> <br />
+                <span>Oxford, United Kingdom</span> 
+                <br />
                 Phone: <span>239213124312</span>
                 <br />
                 E-Mail:
@@ -120,6 +129,10 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// Definition of auxilliary objects
+
+// Footer container
 const Wrapper = styled.div`
   font-size: 15px;
   line-height: 27px;
