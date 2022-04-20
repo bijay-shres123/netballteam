@@ -23,9 +23,9 @@ const TrainingSession = () => {
 						<Card.Text>
 							Have the players get into pairs.
 							<p>
-								One player starts with the ball and drops, places or throws the ball in random places around a semi circular area.
+								One player starts with the ball and drops, places or throws the ball in random places around a semi circular area...
 							</p>
-							<ShowMore maxHeight={100}>
+							{/* <!-- <ShowMore maxHeight={100}>
 							<p>
 							
 								The other player in the pair stands around a metre opposite keeping a close eye on the ball. 
@@ -34,7 +34,7 @@ const TrainingSession = () => {
 							<p>
 								After 10, have the players swap over so that the passer is now reacting to the ball.
 							</p>
-							</ShowMore>
+							</ShowMore> --> */}
 						</Card.Text>
 					</Card.Body>
 				</Card>
@@ -47,9 +47,9 @@ const TrainingSession = () => {
 						<Card.Text>
 							Have the players get into pairs.
 							<p>
-								Set up a triangle with cones. 2 players are attackers, 2 are defenders.
+								Set up a triangle with cones. 2 players are attackers, 2 are defenders...
 							</p>
-							<ShowMore maxHeight={100}>
+							{/* <!-- <ShowMore maxHeight={100}>
 							<p>
 								Attacker starts on the top of the triangle and the other starts on one of the bottom corners.
 							</p>
@@ -66,7 +66,7 @@ const TrainingSession = () => {
 								The attacker behind the line passes the ball to the new top attacker, takes one of the bottom corner spaces 
 								and the drill repeats.
 							</p>
-							</ShowMore>
+							</ShowMore> --> */}
 						</Card.Text>
 					</Card.Body>
 				</Card>
@@ -81,9 +81,9 @@ const TrainingSession = () => {
 								This drill is for a minimum group of eight.
 							</p>
 							<p>
-								Two players standing at each point of a cross.
+								Two players standing at each point of a cross...
 							</p>
-							<ShowMore maxHeight={100}>
+							{/* <!-- <ShowMore maxHeight={100}>
 							<p>
 								Have two balls start on opposite sides of the cross (white 1 and 3)
 							</p>
@@ -95,7 +95,7 @@ const TrainingSession = () => {
 								White 1 and 3 then do the same, run straight and receive the ball from the left, 
 								pass on straight and join the end of the opposite line. Repeat
 							</p>
-							</ShowMore>
+							</ShowMore> --> */}
 						</Card.Text>
 					</Card.Body>
 				</Card>
@@ -112,9 +112,9 @@ const TrainingSession = () => {
 						<Card.Text>
 							<p>
 								Every player should be able to successfully demonstrate a 1st and 2nd stage 
-								defence to apply pressure to the ball carrier and force an error or turnover.
+								defence to apply pressure to the ball carrier and force an error or turnover...
 							</p>
-							<ShowMore maxHeight={100}>
+							{/* <!-- <ShowMore maxHeight={100}>
 							<p>
 								The session begins with a fun warm-up where plays need to be quick to react 
 								for both attack and defence. The session looks particularly at stage 1 and 2 
@@ -128,7 +128,7 @@ const TrainingSession = () => {
 							<p>
 								Players should begin working as a unit and in partnerships to be more successful in defence.
 							</p>
-							</ShowMore>
+							</ShowMore> --> */}
 						</Card.Text>
 					</Card.Body>
 				</Card>
@@ -141,9 +141,13 @@ const TrainingSession = () => {
 						<Card.Text>
 							<p>
 								It is important that your attacking players can hit circle edge to receive the ball. 
-								This helps reduce the pressure on the ball carrier, as a defender cannot 3ft 
-								mark and therefore increases the success of feeding the shooters. 
+								This helps reduce the pressure on the ball carrier...
+								
 							</p>
+								
+								 {/* <!--  ... as a defender cannot 3ft 
+								mark and therefore increases the success of feeding the shooters. 
+							
 							<ShowMore maxHeight={100}>
 							<p>
 								The session begins with a fun warm-up focused on getting your players working to get the ball 
@@ -158,7 +162,7 @@ const TrainingSession = () => {
 								Players should not simply stand on the circle edge, instead use their skills to move on and off, 
 								repositioning around the circle. 
 							</p>
-							</ShowMore>
+							</ShowMore> --> */}
 						</Card.Text>
 					</Card.Body>
 				</Card>
