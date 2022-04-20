@@ -1,8 +1,14 @@
+/**
+******************************************************************************************
+* The following code represents page "Training Sessions". Here user can look at the list
+* of training sessions, open them. Also, user can request a session he or she wants. 
+* Designed to be shown on page Training Session.
+******************************************************************************************
+*/
+
 import {Nav,} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
-
 import styled from 'styled-components'
-
 import ShowMore from 'react-show-more-button';
 
 const TrainingSession = () => {
@@ -141,8 +147,7 @@ const TrainingSession = () => {
 						<Card.Text>
 							<p>
 								It is important that your attacking players can hit circle edge to receive the ball. 
-								This helps reduce the pressure on the ball carrier...
-								
+								This helps reduce the pressure on the ball carrier...				
 							</p>
 								
 								 {/* <!--  ... as a defender cannot 3ft 
