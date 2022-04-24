@@ -207,7 +207,7 @@ export default function SignUpForm() {
       >
         Sign Up
       </Button>
-      <div id="emailHelp" className="form-text text-center mb-5 text-dark">Already Registered? <a href="#" className="text-dark fw-bold"> Sign In</a>
+      <div id="emailHelp" className="form-text text-center mb-5 text-dark">Already Registered? <a href="/login" className="text-dark fw-bold"> Sign In</a>
                 </div>
     </Form>
     </div>

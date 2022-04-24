@@ -1,7 +1,6 @@
 
 import axios from 'axios';
-//import axios from '../Components/BaseURL';
-import * as axiosURLS from '../Components/axiosURL'; 
+
 
 export function PostData(userData) {
 
