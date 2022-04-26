@@ -42,7 +42,7 @@ const ForgotPassword = ({ authenticate, resetPassword, onSuccess }) => {
       <Wrapper>
     <Form onSubmit={(e) => e.preventDefault()} className="card-body cardbody-color " style={{boxShadow:' -1px 1px 6px 10px #c8d3d7'}}>
     <div className="text-center">
-              <img src="assets/images/user.jpeg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+              <img src="assets/images/user.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                 width="160px" alt="profile"/>
             </div>
       <Form.Group>

@@ -18,13 +18,13 @@ export default function NavBar() {
         <Navbar collapseOnSelect expand="lg" style={{background:"#09425A"}} variant="dark">
         <Container>
             
-        <Navbar.Brand href="/">Train-Netball</Navbar.Brand>
+        <Navbar.Brand href="/">PlaNetBall</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/forum">Forum</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
+            {/* <Nav.Link href="/contact">Contact</Nav.Link> */}
             <Nav.Link href="/trainingsession">Training Session</Nav.Link>
           </Nav>
           

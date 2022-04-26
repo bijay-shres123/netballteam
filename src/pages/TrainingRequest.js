@@ -41,8 +41,9 @@ const TrainingRequest = () => {
     return (
         <div class="container">
         <h1 style={{padding: "24px 0", fontSize: "24px",fontWeight:'bolder',fontFamily:'None'}}>Request New Training Session</h1>
-            <div class="row justify-content-md-center">
+            <div class="row justify-content-md-center" style={{background:'#f9f9f9', padding:'50px', margin:'30px 0'}}>
                 <div className='col-md' style={{maxWidth:'600px'}}>
+                    <p>Please provide a detail overview of training request.</p>
                     <form onSubmit={handleSubmit}>
                         {/* <!-- Name input --> */}
                         <div class="form-outline mb-4">

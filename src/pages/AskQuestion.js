@@ -8,7 +8,7 @@
 
 import styled from 'styled-components'
 import {useState} from 'react'
-import { PostTrainingRequest } from '../services/PostTrainingRequest';
+import { PostQuestion } from '../services/PostQuestion';
 const AskQuestion = () => {
 
     const [title, setTitle] = useState('');
@@ -25,7 +25,7 @@ const AskQuestion = () => {
         values.title = title
         values.description = description
         // console.log(values)
-        PostTrainingRequest(values).then((result) => {
+        PostQuestion(values).then((result) => {
             let responseJSON:any = result;
             console.log(responseJSON);
             if (responseJSON.status===200|| responseJSON.status===201) {

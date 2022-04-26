@@ -36,7 +36,7 @@ const TrainingSession = () => {
     		
 				{Data.map(({id,title,highlighted_info,description,youtube_link})=>( 
 					<div className="col-sm">
-					<Card style={{ width: '18rem' ,color:"#000" }}>
+					<Card style={{ width: '18rem' ,color:"#000", margin:'20px 0' }}>
 						<Card.Img variant="top" src="assets/images/sp.png" />
 						<Card.Body>
 							<Card.Title><Nav.Link href={`session/${id}`} style={{ padding: '0px'}}>{title}</Nav.Link></Card.Title>

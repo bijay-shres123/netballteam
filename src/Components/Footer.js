@@ -21,12 +21,12 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-5 col-sm-6">
-              <img className="footer-logo" src="/assets/images/PlaNetBall logo.png" alt="Logo of the site" />
+              <img className="footer-logo" style={{width:'60px', height:'60px'}} src="/assets/images/PlaNetBall logo.png" alt="Logo of the site" />
+              <span style={{fontWeight:'bold', fontColor: '#000', padding:'9px'}}>PlaNetBall</span>
               <br />
               <br />
               <p>
-                Admodum deserunt intellegam in duo, novum nonumy populo est at, qui an reque ignota constituto.
-                Utinam aperiri equidem te vis. Cu ius velit populo impetus.  
+              Share plans, video & files, with all the coaches able to access them via your clubs SportsHub. Stay connected and build a portfolio of best practice for your club.
               </p>
             </div>
 
@@ -83,7 +83,7 @@ const Footer = () => {
                 E-Mail:
                 <span>
                   {' '}
-                  <Link to="/">enquiry@train-netball.com</Link>{' '}
+                  <Link to="/">enquiry@palnetball.com</Link>{' '}
                 </span>
                 <br />
               </div>
@@ -117,7 +117,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="copyrights">
-                © 2022 Train-Netball. All Rights Reserved.
+                © 2022 PlaNetBall. All Rights Reserved.
               </div>
             </div>
           </div>

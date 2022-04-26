@@ -20,14 +20,13 @@ export default function Banner(){
             <h1 className="display-4">The fast & visual way
             to <HighlightWord>learn NetBall</HighlightWord></h1>
             <p className="lead">
-              This is a simple hero unit, a simple jumbotron-style component for 
-            calling extra attention to featured content or information.
+            Share plans, video & files, with all the coaches able to access them via your clubs SportsHub. Stay connected and build a portfolio of best practice for your club.
             </p>
 
             {/* <!-- Button "Try it" under the text --> */}
             <span className="text-center d-inline-block">
-              <a className="btn btn-primary btn-lg w-100" href="#" role="button">Try it free</a>
-              <p className="text-muted">No credit card required</p>
+              <a className="btn  btn-lg w-100" href="/trainingsession" role="button" style={{border:'1px solid #fff',background:'#08425a',color:'#fff'}}>Start Today</a>
+              {/* <p className="text-muted">No credit card required</p> */}
             </span>
           </div>
           <div className="col-lg-4 align-items-center d-flex">
@@ -36,8 +35,7 @@ export default function Banner(){
               <Card.Body>
                 <Card.Title>The Grip</Card.Title>
                 <Card.Text> 
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
+                Have the players get into pairs. One player starts with the ball and drops, places or throws the ball in random places.
                 </Card.Text>
               </Card.Body>
             </Card>
