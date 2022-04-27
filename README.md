@@ -1,3 +1,7 @@
+The project is created as per requierments for coursework under SOFT7003.
+This work belongs to Group 3.
+
+The webapp is built using REACT JS and can be installed using following commands.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
